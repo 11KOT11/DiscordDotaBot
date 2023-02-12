@@ -2,7 +2,29 @@ import { Client } from 'discord.js';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
-const client = new Client({ intents: ['Guilds', 'GuildMessages', 'MessageContent', 'GuildVoiceStates', 'GuildMembers'] });
+const client = new Client(
+    {
+         intents: [
+            "Guilds",
+            "DirectMessages",
+            "DirectMessageReactions",
+            "DirectMessageTyping",
+            "GuildBans",
+            "GuildEmojisAndStickers",
+            "GuildIntegrations",
+            "GuildInvites",
+            "GuildMembers",
+            "GuildMessages",
+            "MessageContent",
+            "GuildMessageReactions",
+            "GuildMessageTyping",
+            "GuildPresences",
+            "GuildScheduledEvents",
+            "GuildVoiceStates",
+            "GuildWebhooks",
+         ] 
+    }
+    );
 
 import RoomCreator from "./RoomCreater/index.js";
 import Statistic from './Statistic/index.js';

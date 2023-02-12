@@ -10,8 +10,9 @@ export default class Profile {
             const author = msg.author; // получаем пользователья который написал сообщение
             const url = `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.png`; //получаем иконку пользователя
             if(content=="!profile"){
+                msg.channel.sendTyping();  
                 const rank = msg.guild.roles.cache.get(msg.guild.members.cache.get(author.id)._roles[0]).name; // получаем ранг пользователя
-                const img = await createProfile(author.username, url, rank); // создаем изображения профиля
+                const img = await createProfile(author.username, url, rank); // создаем изображения профиля   
                 msg.channel.send({ files: [{ attachment: img }] }).then((e)=>{ // отправляем профиль
                     msg.delete(); // удаляем сообщение !profile
                 });
