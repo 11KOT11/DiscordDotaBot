@@ -49,6 +49,9 @@ export default async function (name, url, rank) {
     </style>
     </html>`;
     return await createProfile({
-        html: html
+        html: html,
+        puppeteerArgs: {
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
+        }
     })
 }
